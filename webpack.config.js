@@ -1,14 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ProvidePlugin } = require('webpack');
-const { webpack } = require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    clean: true,
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      src: path.join(__dirname, 'src'),
+    },
   },
   module: {
     rules: [
@@ -29,6 +35,7 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'file-loader',
@@ -43,9 +50,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new ProvidePlugin({
-      process: 'process/browser',
-    }),
+
     new webpack.ProvidePlugin({
       React: 'react',
     }),
@@ -56,8 +61,9 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
-    port: 3000,
+    port: 8080,
     hot: true,
     historyApiFallback: true,
+    open: true,
   },
 };

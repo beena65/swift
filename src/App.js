@@ -1,10 +1,11 @@
 import React from 'react';
+import CustomLayout from './components/Layout';
 
 const App = () => {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, dolore.
-    </div>
+    <>
+      <CustomLayout />
+    </>
   );
 };
 
