@@ -1,12 +1,13 @@
-import React from 'react';
-import CustomLayout from './components/Layout';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+import CustomLayout from "./components/Layout";
 const App = () => {
-  return (
-    <>
-      <CustomLayout />
-    </>
-  );
+    return (
+        <>
+            <CustomLayout />
+        </>
+    );
 };
 
 export default App;
