@@ -14,8 +14,7 @@ import {
     PlusOutlined,
     DownloadOutlined,
 } from "@ant-design/icons";
-import {deleteUser, getUserData, setSearchQuery} from "../actions/user.action";
-import axios from "axios";
+import {deleteUser, getUserData, setSearchQuery, setSortOrder} from "../actions/user.action";
 
 const {Header, Sider, Content} = Layout;
 const {Search} = Input;
@@ -28,7 +27,7 @@ const CustomLayout = () => {
     const [menuItemClicked, setMenuItemClicked] = useState(false);
     const [selectedKeys, setSelectedKeys] = useState(false);
     const [activeMenuItem, setActiveMenuItem] = useState("5");
-    const [selectedSortOption, setSelectedSortOption] = useState("userName");
+    const [selectedSortOption, setSelectedSortOption] = useState("");
 
     const userData = useSelector((state) => state.users);
 
@@ -54,7 +53,8 @@ const CustomLayout = () => {
     };
 
     const handleSortChange = (value) => {
-        setSelectedSortOption(value);
+        console.log("sort value", value);
+        dispatch(setSortOrder(value));
     };
 
     const handleDelete = (record) => {
@@ -282,11 +282,12 @@ const CustomLayout = () => {
                                             }}
                                         >
                                             <Select
-                                                defaultValue="userName"
+                                                defaultValue="descend"
                                                 style={{width: 200}}
                                                 onChange={handleSortChange}
                                             >
-                                                <Option value="userName">Sort by( userName)</Option>
+                                                <Option value="ascend">Sort by Username (Ascending)</Option>
+                                                <Option value="descend">Sort by Username (Descending)</Option>
                                             </Select>
 
                                             <Button type="primary" icon={<PlusOutlined />}>
@@ -300,7 +301,7 @@ const CustomLayout = () => {
                                         {userData && (
                                             <Table
                                                 columns={columns}
-                                                dataSource={userData.users.users}
+                                                dataSource={userData.users.users.slice()}
                                                 pagination={{pageSize: 5}}
                                             />
                                         )}

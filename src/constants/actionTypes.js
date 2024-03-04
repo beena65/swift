@@ -10,4 +10,5 @@ export const userConstants = {
     SEARCH_USER_FAILURE: "SEARCH_USER_FAILURE",
 
     SET_SEARCH_QUERY: "SET_SEARCH_QUERY",
+    SET_SORT_ORDER: "SET_SORT_ORDER",
 };

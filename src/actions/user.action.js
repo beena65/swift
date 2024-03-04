@@ -49,3 +49,8 @@ export const setSearchQuery = (query) => ({
     type: userConstants.SET_SEARCH_QUERY,
     payload: {query},
 });
+
+export const setSortOrder = (order) => ({
+    type: userConstants.SET_SORT_ORDER,
+    payload: {order},
+});

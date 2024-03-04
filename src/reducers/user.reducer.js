@@ -1,8 +1,8 @@
 import {userConstants as uc} from "../constants/actionTypes";
-
 const initialState = {
     users: [],
     loading: false,
+    sortOrder: "descend",
 };
 
 const userReducer = (state = initialState, action) => {
@@ -28,7 +28,7 @@ const userReducer = (state = initialState, action) => {
             const updatedUsers = state.users.users.filter((user) => user.id !== action.payload.userId);
             console.log(updatedUsers, action.payload.userId);
 
-            console.log("Updated State:", {
+            console.log("deleted State:", {
                 users: updatedUsers,
             });
             return {
@@ -52,6 +52,22 @@ const userReducer = (state = initialState, action) => {
                 ...state,
 
                 users: {...state.users, users: filteredUsers},
+            };
+        case uc.SET_SORT_ORDER:
+            const sortedUsers = state.users.users;
+            console.log("sorteduser1", sortedUsers);
+            sortedUsers.sort((a, b) => {
+                if (action.payload.order === "descend") {
+                    return a.firstName.localeCompare(b.firstName);
+                } else {
+                    return b.firstName.localeCompare(a.firstName);
+                }
+            });
+            console.log("sorteduser2", sortedUsers);
+            return {
+                ...state,
+                sortOrder: action.payload.order,
+                users: {...state.users, users: sortedUsers},
             };
         default:
             return {
