@@ -1,0 +1,91 @@
+@media screen and (max-width: 768px) {
+    .search_hd,
+    .trio_icon_hd,
+    .logo {
+        display: none !important;
+    }
+    .logo-hide {
+        display: block;
+    }
+    .trigger {
+        display: flex-end;
+    }
+    .wrapper_hd {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .menu_hd {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .wrap-btn {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding-bottom: 15px;
+        margin: 20px 10px 20px;
+        border-bottom: 1px solid #d9d9d9b0;
+    }
+    .wrap-btn-search {
+        width: 80%;
+        margin-right: 10px;
+    }
+    .menu_children {
+        margin-top: 55px !important;
+    }
+    .wrap-btn-dwn {
+        position: absolute;
+        right: 0;
+    }
+    .wrap-btn-add {
+        position: absolute;
+        right: 0;
+        top: 52px;
+    }
+    .wrap-btn-add .add-text {
+        display: none;
+    }
+    .content-css {
+        width: 100%;
+    }
+    .footer-menu {
+        flex-direction: column;
+    }
+    .ant-table-wrapper .ant-table-pagination {
+        flex-wrap: nowrap;
+    }
+    .menu-ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .media_icons {
+        display: flex;
+        flex-direction: row;
+        gap: 18px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 10px 15px;
+        border-bottom: 1px solid #efefef;
+    }
+    .media_icons a {
+        color: #9e9898;
+    }
+    .copy_td {
+        text-align: center;
+        font-family: serif;
+    }
+    .footer_cd {
+        padding: 30px 20px 20px;
+        background: #ffffff;
+    }
+    .ant-btn:not(.ant-btn-icon-only) > .ant-btn-icon:not(:last-child) {
+        margin-inline-end: unset;
+    }
+    .media_svg {
+        font-size: 20px;
+    }
+}
