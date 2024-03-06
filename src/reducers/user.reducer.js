@@ -26,11 +26,7 @@ const userReducer = (state = initialState, action) => {
 
         case uc.DELETE_USER:
             const updatedUsers = state.users.users.filter((user) => user.id !== action.payload.userId);
-            console.log(updatedUsers, action.payload.userId);
 
-            console.log("deleted State:", {
-                users: updatedUsers,
-            });
             return {
                 ...state,
                 users: {...state.users, users: updatedUsers},
@@ -38,16 +34,11 @@ const userReducer = (state = initialState, action) => {
 
         case uc.SET_SEARCH_QUERY:
             const searchQuery = action.payload.query.toLowerCase();
-            console.log("searchQuery:", searchQuery);
-            console.log("state.users.users:", state.users.users);
 
             const filteredUsers = state.users.users.filter(
                 (user) => user.firstName && user.firstName.toLowerCase().includes(searchQuery)
             );
-            console.log("search State:", {
-                users: filteredUsers,
-            });
-            console.log("filteredUsers:", filteredUsers);
+
             return {
                 ...state,
 
@@ -55,7 +46,7 @@ const userReducer = (state = initialState, action) => {
             };
         case uc.SET_SORT_ORDER:
             const sortedUsers = state.users.users;
-            console.log("sorteduser1", sortedUsers);
+
             sortedUsers.sort((a, b) => {
                 if (action.payload.order === "descend") {
                     return a.firstName.localeCompare(b.firstName);
@@ -63,7 +54,7 @@ const userReducer = (state = initialState, action) => {
                     return b.firstName.localeCompare(a.firstName);
                 }
             });
-            console.log("sorteduser2", sortedUsers);
+
             return {
                 ...state,
                 sortOrder: action.payload.order,
