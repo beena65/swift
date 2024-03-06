@@ -52,7 +52,7 @@ module.exports = {
             React: "react",
         }),
     ],
-    mode: "development",
+
     devtool: "eval-source-map",
     devServer: {
         static: {
